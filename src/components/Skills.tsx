@@ -6,7 +6,7 @@ const Skills = () => {
     {
       title: "Programming Languages",
       icon: <Code className="w-6 h-6" />,
-      skills: ["Python", "JavaScript", "Solidity"],
+      skills: ["Python", "JavaScript", "TypeScript", "Solidity"],
       color: "from-blue-500 to-purple-600"
     },
     {
@@ -22,23 +22,27 @@ const Skills = () => {
       color: "from-orange-500 to-red-600"
     },
     {
-      title: "Soft Skills",
+      title: "Web3",
+      icon: <Globe className="w-6 h-6" />,
+      skills: ["Solidity", "Blockchain", "Smart Contracts", "IPFS"],
+      color: "from-purple-500 to-indigo-600"
+    },
+    {
+      title: "Deployment",
       icon: <Users className="w-6 h-6" />,
-      skills: ["Teamwork", "Team Management", "Leadership"],
+      skills: ["AWS", "AWS-EC2", "AWS LAMBDA"],
       color: "from-pink-500 to-rose-600"
     }
   ];
-
-  const interests = ["Playing Cricket", "Exploring new things", "Singing"];
 
   return (
     <section id="skills" className="py-20 px-4 bg-background">
       <div className="container max-w-6xl mx-auto">
         <h2 className="text-4xl font-bold text-center mb-12 text-foreground">
-          Skills & Interests
+          Skills
         </h2>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
           {skillCategories.map((category, index) => (
             <Card key={index} className="border-none shadow-lg hover:shadow-xl transition-all duration-300 group">
               <CardHeader className="text-center pb-4">
@@ -62,24 +66,6 @@ const Skills = () => {
             </Card>
           ))}
         </div>
-
-        <Card className="border-none shadow-lg">
-          <CardHeader className="text-center">
-            <CardTitle className="text-2xl">Personal Interests</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="flex flex-wrap justify-center gap-4">
-              {interests.map((interest, index) => (
-                <div 
-                  key={index}
-                  className="bg-gradient-to-r from-primary to-accent text-primary-foreground px-6 py-3 rounded-full font-medium hover:shadow-lg transition-all duration-300"
-                >
-                  {interest}
-                </div>
-              ))}
-            </div>
-          </CardContent>
-        </Card>
       </div>
     </section>
   );
