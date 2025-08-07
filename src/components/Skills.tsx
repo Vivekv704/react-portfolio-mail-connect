@@ -44,7 +44,7 @@ const Skills = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
           {skillCategories.map((category, index) => (
-            <Card key={index} className="border-none shadow-lg hover:shadow-xl transition-all duration-300 group">
+            <Card key={index} className="border border-primary/20 bg-card/80 backdrop-blur-sm shadow-lg hover:shadow-xl hover:shadow-primary/20 transition-all duration-300 group hover:border-primary/40">
               <CardHeader className="text-center pb-4">
                 <div className={`w-12 h-12 mx-auto mb-4 rounded-full bg-gradient-to-r ${category.color} flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300`}>
                   {category.icon}
@@ -56,7 +56,7 @@ const Skills = () => {
                   {category.skills.map((skill, skillIndex) => (
                     <div 
                       key={skillIndex}
-                      className="bg-secondary/50 px-3 py-1 rounded-full text-sm text-center hover:bg-primary/10 transition-colors"
+                      className="bg-primary/10 border border-primary/20 px-3 py-1 rounded-full text-sm text-center hover:bg-primary/20 hover:border-primary/40 transition-colors"
                     >
                       {skill}
                     </div>
