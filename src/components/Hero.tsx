@@ -46,7 +46,7 @@ const Hero = () => {
             <a href="https://www.linkedin.com/in/vivek-gupta4577/" className="text-muted-foreground hover:text-primary transition-colors">
               <Linkedin className="w-6 h-6" />
             </a>
-            <a href="mailto:vivek.gupta.aiml.2022@tint.edu.in" className="text-muted-foreground hover:text-primary transition-colors">
+            <a href="mailto:mrvivekgupta35@gmail.com" className="text-muted-foreground hover:text-primary transition-colors">
               <Mail className="w-6 h-6" />
             </a>
           </div>
