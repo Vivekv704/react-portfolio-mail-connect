@@ -19,15 +19,48 @@ const Contact = () => {
     e.preventDefault();
     setIsLoading(true);
 
-    // Since we don't have Supabase connected, we'll show a message about connecting to Supabase
-    setTimeout(() => {
+    // Prepare data for Web3Forms
+    const data = {
+      access_key: "6ceb2064-7f92-4fa5-a48e-a55921028aa0", 
+      name: formData.name,
+      email: formData.email,
+      message: formData.message,
+    };
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        toast({
+          title: "Message Sent!",
+          description: "Thank you for reaching out. I'll get back to you soon.",
+          variant: "default",
+        });
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        toast({
+          title: "Error",
+          description: "Something went wrong. Please try again later.",
+          variant: "destructive",
+        });
+      }
+    } catch (error) {
       toast({
-        title: "Backend Required",
-        description: "To send emails, please connect your project to Supabase first. The form data is ready to be processed!",
+        title: "Error",
+        description: "Unable to send message. Please try again.",
         variant: "destructive",
       });
+    } finally {
       setIsLoading(false);
-    }, 1000);
+    }
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
